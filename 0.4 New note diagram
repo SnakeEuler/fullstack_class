@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant U as User
+    participant B as Browser
+    participant S as Server
+    U->>B: Enter URL
+    B->>+S: HTTP GET /exampleapp/notes
+    S-->>-B: HTML + CSS + JS
+    B->>B: Render Page
+    Note right of B: User sees the notes page
+    U->>B: Types in a new note
+    U->>B: Clicks save
+    B->>+S: HTTP POST /exampleapp/new_note
+    Note right of S: Server processes\nthe new note data
+    S-->>-B: HTTP 302 Redirect to /notes
+    B->>+S: HTTP GET /notes
+    S-->>-B: HTML with updated notes
+    B->>B: Render Updated Page
+    Note right of B: User sees the updated notes list
