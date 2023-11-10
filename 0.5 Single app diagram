@@ -11,11 +11,3 @@ sequenceDiagram
     S-->>-B: JSON Response
     B->>B: Call redrawNotes()
     Note right of B: Page is displayed with notes
-
-    U->>B: Submit new note
-    B->>B: Add note to notes array
-    B->>B: Call redrawNotes()
-    B->>+S: HTTP POST /exampleapp/new_note_spa (JSON)
-    S-->>-B: HTTP 201 Created
-    B->>B: Confirmation in console
-    Note right of B: Page shows new note without refresh
